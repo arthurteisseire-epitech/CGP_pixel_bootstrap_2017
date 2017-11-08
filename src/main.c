@@ -9,12 +9,12 @@
 
 int main(void)
 {
-	sfVideoMode mode = {3, 5, 32};
+	sfVideoMode mode = {SIZE_X, SIZE_Y, 32};
 	sfRenderWindow *window;
 	sfEvent event;
-	sfTexture *texture = sfTexture_create(3, 5);
+	sfTexture *texture = sfTexture_create(SIZE_X, SIZE_Y);
 	sfSprite *sprite = sfSprite_create();
-	framebuffer_t *buffer = framebuffer_create(3, 5);
+	framebuffer_t *buffer = framebuffer_create(SIZE_X, SIZE_Y);
 
 	window = sfRenderWindow_create(mode, "Print pixel", sfResize | sfClose, NULL);
 	if (!window)
@@ -34,7 +34,8 @@ int main(void)
 
 		my_put_pixel(buffer, 1, 1, sfRed);
 		my_put_pixel(buffer, 0, 0, sfRed);
-		sfTexture_updateFromPixels(texture, buffer->pixels, 3, 5, 0, 0);
+		my_put_square(buffer, 20, 20, 50, 200, sfRed);
+		sfTexture_updateFromPixels(texture, buffer->pixels, SIZE_X, SIZE_Y, 0, 0);
 		sfSprite_setTexture(sprite, texture, 1);
 		sfRenderWindow_drawSprite(window, sprite, NULL);
 
