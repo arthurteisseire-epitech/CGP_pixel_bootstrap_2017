@@ -35,6 +35,7 @@ int main(void)
 		my_put_pixel(buffer, 1, 1, sfRed);
 		my_put_pixel(buffer, 0, 0, sfRed);
 		my_put_square(buffer, 20, 20, 50, 200, sfRed);
+		my_put_square(buffer, 500, 400, 200, 70, sfRed);
 		sfTexture_updateFromPixels(texture, buffer->pixels, SIZE_X, SIZE_Y, 0, 0);
 		sfSprite_setTexture(sprite, texture, 1);
 		sfRenderWindow_drawSprite(window, sprite, NULL);
